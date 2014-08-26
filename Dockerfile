@@ -37,7 +37,8 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y jenkins
 
 VOLUME /var/lib/jenkins
-ENV JENKINS_HOME /var/lib/jenkins
+
+RUN echo "/var/lib/jenkins" > /etc/container_environment/JENKINS_HOME
 
 RUN mkdir /etc/service/jenkins
 ADD jenkins/run /etc/service/jenkins/run
