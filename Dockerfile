@@ -27,5 +27,20 @@ RUN apt-get update
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get install -y oracle-java8-installer ca-certificates
 
+##### Installing Jenkins #####
+
+RUN apt-get -y install wget git
+
+RUN echo "deb http://pkg.jenkins-ci.org/debian binary/" > /etc/apt/sources.list.d/jenkins.list
+RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y jenkins
+
+VOLUME /var/lib/jenkins
+ENV JENKINS_HOME /var/lib/jenkins
+
+RUN mkdir /etc/service/jenkins
+ADD jenkins/run /etc/service/jenkins/run
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
