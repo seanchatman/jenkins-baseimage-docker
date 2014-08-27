@@ -20,5 +20,3 @@ if find $DATA/plugins -maxdepth 0 -empty | read v; then
 fi
 
 chown -R jenkins $DATA
-
-exec setuser jenkins -c "java -jar /usr/share/jenkins/jenkins.war" >>/var/log/jenkins.log 2>&1
