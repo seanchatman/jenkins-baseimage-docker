@@ -1,11 +1,6 @@
 FROM arbiterofcool/jdk8-baseimage-docker:0.1
 MAINTAINER Sean Chatman <xpointsh@gmail.com>
 
-# Set correct environment variables.
-ENV HOME /root
-
-ADD . /root
-
 ##### Installing Jenkins #####
 
 RUN apt-get -y install wget git
