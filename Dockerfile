@@ -1,4 +1,4 @@
-FROM arbiterofcool/jdk8-baseimage-docker:0.1
+FROM arbiterofcool/jdk8-baseimage-docker:0.2
 MAINTAINER Sean Chatman <xpointsh@gmail.com>
 
 ##### Installing Jenkins #####
