@@ -15,8 +15,8 @@ VOLUME /var/lib/jenkins
 RUN echo "/var/lib/jenkins" > /etc/container_environment/JENKINS_HOME
 
 # Start Jenkins
-RUN mkdir /etc/service/jenkins
-ADD jenkins/run /etc/service/jenkins/run
+ONBUILD RUN mkdir /etc/service/jenkins
+ONBUILD ADD jenkins/run /etc/service/jenkins/run
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
