@@ -1,4 +1,4 @@
-# A Jenkins daemon running in arbiterofcool/jdk8-baseimage-docker:0.1 (phusion/baseimage-docker) 
+# A Jenkins daemon running in arbiterofcool/jdk8-baseimage-docker:latest (phusion/baseimage-docker) 
 
 jenkins-baseimage-docker is a special [Docker](http://www.docker.io) image that follows the best-practices set by [Baseimage-docker](https://github.com/phusion/baseimage-docker).
 
