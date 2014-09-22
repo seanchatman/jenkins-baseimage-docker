@@ -1,4 +1,4 @@
-FROM arbiterofcool/jdk8-baseimage-docker:0.2
+FROM arbiterofcool/jdk8-baseimage-docker:latest
 MAINTAINER Sean Chatman <xpointsh@gmail.com>
 
 ##### Installing Jenkins #####
@@ -14,7 +14,10 @@ VOLUME /var/lib/jenkins
 
 RUN echo "/var/lib/jenkins" > /etc/container_environment/JENKINS_HOME
 
-# Start Jenkins
+# Add jobs
+ADD jobs /var/lib/jenkins/jobs
+
+# Setup Jenkins daemon
 ONBUILD RUN mkdir /etc/service/jenkins
 ONBUILD ADD jenkins/run /etc/service/jenkins/run
 
