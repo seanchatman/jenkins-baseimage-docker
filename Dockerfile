@@ -15,7 +15,7 @@ VOLUME /var/lib/jenkins
 RUN echo "/var/lib/jenkins" > /etc/container_environment/JENKINS_HOME
 
 # Add jobs
-ADD jobs /var/lib/jenkins/jobs
+ONBUILD ADD jobs /var/lib/jenkins/jobs
 
 # Setup Jenkins daemon
 ONBUILD RUN mkdir /etc/service/jenkins
