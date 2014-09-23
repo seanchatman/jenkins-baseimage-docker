@@ -38,5 +38,9 @@ RUN apt-get install -qqy lxc-docker
 ADD ./wrapdocker /etc/my_init.d/wrapdocker
 RUN chmod +x /etc/my_init.d/wrapdocker
 
+# Install pip and fig
+RUN apt-get install -y python-pip
+RUN pip install -U fig
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*

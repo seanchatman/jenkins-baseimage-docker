@@ -83,17 +83,19 @@ popd >/dev/null
 # delete it so that docker can start.
 rm -rf /var/run/docker.pid
 
+docker -d -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock -dns 8.8.8.8 &
+
 # If we were given a PORT environment variable, start as a simple daemon;
 # otherwise, spawn a shell as well
-if [ "$PORT" ]
-then
-	exec docker -d -H 0.0.0.0:$PORT
-else
-	if [ "$LOG" == "file" ]
-	then
-		docker -d &>/var/log/docker.log &
-	else
-		docker -d &
-	fi
-	exec bash
-fi
+#if [ "$PORT" ]
+#then
+#	exec docker -d -H 0.0.0.0:$PORT
+#else
+#	if [ "$LOG" == "file" ]
+#	then
+#		docker -d &>/var/log/docker.log &
+#	else
+#		docker -d &
+#	fi
+#	exec bash
+#fi
