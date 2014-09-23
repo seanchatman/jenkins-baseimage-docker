@@ -1,4 +1,8 @@
 app:
   build: .
+  volumes:
+   - /var/lib/jenkins
+   - /var/lib/docker
   ports:
    - "8080:8080"
+  privileged: true

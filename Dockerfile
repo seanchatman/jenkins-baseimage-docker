@@ -11,6 +11,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y jenkins
 
 VOLUME /var/lib/jenkins
+VOLUME /var/lib/docker
 
 RUN echo "/var/lib/jenkins" > /etc/container_environment/JENKINS_HOME
 
