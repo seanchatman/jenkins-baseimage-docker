@@ -1,4 +1,4 @@
-app:
+jenkins:
   build: .
   volumes:
    - /var/lib/jenkins
