@@ -16,11 +16,11 @@ VOLUME /var/lib/docker
 RUN echo "/var/lib/jenkins" > /etc/container_environment/JENKINS_HOME
 
 # Add jobs
-ONBUILD ADD jobs /var/lib/jenkins/jobs
+ADD jobs /var/lib/jenkins/jobs
 
 # Setup Jenkins daemon
-ONBUILD RUN mkdir /etc/service/jenkins
-ONBUILD ADD jenkins/run /etc/service/jenkins/run
+RUN mkdir /etc/service/jenkins
+ADD jenkins/run /etc/service/jenkins/run
 
 ###### Installing Docker in Docker ######
 
