@@ -39,7 +39,7 @@ ADD jobs /var/lib/jenkins/jobs
 
 # Setup Jenkins daemon
 RUN mkdir /etc/service/jenkins
-ADD jenkins/run /etc/service/jenkins/nru
+ADD jenkins/run /etc/service/jenkins/run
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
