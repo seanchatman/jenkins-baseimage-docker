@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Installing plugins."
+./install-plugins.sh
+
+echo "Starting process."
+exec setuser jenkins java -jar -Dhudson.diyChunking=false /usr/share/jenkins/jenkins.war >>/var/log/jenkins.log 2>&1
+
