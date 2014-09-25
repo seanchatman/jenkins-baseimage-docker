@@ -22,7 +22,7 @@ ONBUILD ADD jobs /var/lib/jenkins/jobs
 ONBUILD RUN mkdir /etc/service/jenkins
 ONBUILD ADD jenkins/run /etc/service/jenkins/run
 
-# Here is where things start getting strange.
+###### Installing Docker in Docker ######
 
 # Install basics.
 RUN apt-get update -qq
@@ -38,10 +38,6 @@ RUN apt-get install -qqy lxc-docker
 # Install the magic wrapper.
 ADD ./wrapdocker /etc/my_init.d/wrapdocker
 RUN chmod +x /etc/my_init.d/wrapdocker
-
-# Install pip and fig
-RUN apt-get install -y python-pip
-RUN pip install -U fig docker-py
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /tmp/* /var/tmp/*
